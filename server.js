@@ -16,7 +16,7 @@ const app = express()
 const port = Number(process.env.PORT || 4000)
 const allowedStatuses = ['PENDING', 'CONFIRMED', 'PROCESSING', 'READY_FOR_DELIVERY', 'OUT_FOR_DELIVERY', 'DELIVERED', 'CANCELLED']
 const allowedOrigins = [process.env.CLIENT_URL].filter(Boolean)
-
+./db.js./auth.js./account.js./admin.js./public.js./middleware-auth.js./paymentService.js
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin) || /^http:\/\/localhost:\d+$/.test(origin)) return callback(null, true)
