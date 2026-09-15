@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import bcrypt from 'bcryptjs'
 import { z } from 'zod'
-import db from '../database/db.js'
-import { requireAuth, signUser } from '../middleware/auth.js'
+import db from './db.js'
+import { requireAuth, signUser } from './middleware-auth.js'
 
 const router = Router()
 const credentials = z.object({ email: z.string().email(), password: z.string().min(8), name: z.string().min(2).optional(), phone: z.string().optional() })

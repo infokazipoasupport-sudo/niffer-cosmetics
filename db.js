@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..')
+const root = process.cwd()
 const db = new Database(path.join(root, 'Niffer.sqlite'))
 db.pragma('journal_mode = WAL')
 

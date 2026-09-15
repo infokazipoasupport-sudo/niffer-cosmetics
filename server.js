@@ -4,13 +4,13 @@ import cors from 'cors'
 import rateLimit from 'express-rate-limit'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import db from './database/db.js'
-import authRoutes from './routes/auth.js'
-import accountRoutes from './routes/account.js'
-import adminRoutes from './routes/admin.js'
-import publicRoutes from './routes/public.js'
-import { optionalAuth } from './middleware/auth.js'
-import { paymentService } from './services/paymentService.js'
+import db from './db.js'
+import authRoutes from './auth.js'
+import accountRoutes from './account.js'
+import adminRoutes from './admin.js'
+import publicRoutes from './public.js'
+import { optionalAuth } from './middleware-auth.js'
+import { paymentService } from './paymentService.js'
 
 const app = express()
 const port = Number(process.env.PORT || 4000)
@@ -26,7 +26,7 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 120 }))
-app.use('/uploads', express.static(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../uploads'), { dotfiles: 'deny', index: false }))
+app.use('/uploads', express.static(path.resolve('uploads'), { dotfiles: 'deny', index: false }))
 app.get('/api/health', (_req, res) => res.json({ ok: true, service: 'Niffer-api' }))
 app.use('/api/auth', authRoutes)
 app.use('/api/account', accountRoutes)

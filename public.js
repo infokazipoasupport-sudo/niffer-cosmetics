@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import db from '../database/db.js'
-import { requireAuth } from '../middleware/auth.js'
+import db from './db.js'
+import { requireAuth } from './middleware-auth.js'
 
 const router = Router()
 router.get('/content', (_req, res) => {

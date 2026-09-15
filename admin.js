@@ -4,8 +4,8 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import slugify from 'slugify'
 import { z } from 'zod'
-import db from '../database/db.js'
-import { requireAuth, requireAdmin } from '../middleware/auth.js'
+import db from './db.js'
+import { requireAuth, requireAdmin } from './middleware-auth.js'
 
 const router = Router()
 const upload = multer({ dest: path.resolve('uploads'), limits: { fileSize: 5 * 1024 * 1024 }, fileFilter: (_req, file, cb) => cb(null, ['image/jpeg', 'image/png', 'image/webp'].includes(file.mimetype)) })
