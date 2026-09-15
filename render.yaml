@@ -2,9 +2,9 @@ services:
   - type: web
     name: niffer-cosmetics-api
     runtime: node
-    rootDir: server
+    rootDir: .
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: node server.js
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
